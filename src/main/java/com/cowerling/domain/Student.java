@@ -13,6 +13,7 @@ public class Student {
     private String name;
     private String email;
     private Date birthday;
+    private PhoneNumber phoneNumber;
 
     public Integer getId() {
         return id;
@@ -44,5 +45,18 @@ public class Student {
 
     public void setBirthday(Date birthday) {
         this.birthday = birthday;
+    }
+
+    public PhoneNumber getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public void setPhoneNumber(PhoneNumber phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
+
+    @Override
+    public String toString() {
+        return id + " " + name;
     }
 }

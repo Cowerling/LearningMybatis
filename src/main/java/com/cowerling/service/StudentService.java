@@ -46,6 +46,14 @@ public class StudentService {
     }
 
     public void updateStudent(Student student) {
-        
+        SqlSession sqlSession = DataSqlSessionFactory.getSqlSession();
+
+        try {
+            StudentMapper studentMapper = sqlSession.getMapper(StudentMapper.class);
+            studentMapper.updateStudent(student);
+            sqlSession.commit();
+        } finally {
+            sqlSession.close();
+        }
     }
 }

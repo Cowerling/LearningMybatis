@@ -14,12 +14,12 @@ public interface StudentMapper {
     @Select("SELECT * FROM students")
     List<Student> findAllStudents();
 
-    @Select("SELECT * FROM student WHERE stud_id = #{id}")
+    //@Select("SELECT * FROM student WHERE stud_id = #{id}")
     Student findStudentById(Integer id);
 
     @Insert("INSERT INTO students VALUES(#{id}, #{name}, #{email}, #{birthday})")
-    void insertStudent(Student student);
+    int insertStudent(Student student);
 
     @Update("UPDATE students SET name=#{name}, email=#{email}, dob=#{birthday} WHERE stud_id=#{id}")
-    void updateStudent(Student student);
+    int updateStudent(Student student);
 }
