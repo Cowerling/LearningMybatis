@@ -14,6 +14,20 @@ public class Student {
     private String email;
     private Date birthday;
     private PhoneNumber phoneNumber;
+    private Address address;
+
+    public Student() {}
+
+    public Student(String name, String email, Date birthday) {
+        this.name = name;
+        this.email = email;
+        this.birthday = birthday;
+    }
+
+    public Student(int id, String name, String email, Date birthday) {
+        this(name, email, birthday);
+        this.id = id;
+    }
 
     public Integer getId() {
         return id;
@@ -53,6 +67,14 @@ public class Student {
 
     public void setPhoneNumber(PhoneNumber phoneNumber) {
         this.phoneNumber = phoneNumber;
+    }
+
+    public Address getAddress() {
+        return address;
+    }
+
+    public void setAddress(Address address) {
+        this.address = address;
     }
 
     @Override

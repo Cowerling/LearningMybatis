@@ -2,6 +2,7 @@ package com.cowerling.service;
 
 import com.cowerling.domain.Student;
 import com.cowerling.mapper.StudentMapper;
+import com.cowerling.util.DataSourceFactory;
 import com.cowerling.util.DataSqlSessionFactory;
 import org.apache.ibatis.session.SqlSession;
 
@@ -52,6 +53,29 @@ public class StudentService {
             StudentMapper studentMapper = sqlSession.getMapper(StudentMapper.class);
             studentMapper.updateStudent(student);
             sqlSession.commit();
+        } finally {
+            sqlSession.close();
+        }
+    }
+
+    public void removeStudent(Student student) {
+        SqlSession sqlSession = DataSqlSessionFactory.getSqlSession();
+
+        try {
+            StudentMapper studentMapper = sqlSession.getMapper(StudentMapper.class);
+            studentMapper.deleteStudent(student);
+            sqlSession.commit();
+        } finally {
+            sqlSession.close();
+        }
+    }
+
+    public Student findStudentWithAddress(int id) {
+        SqlSession sqlSession = DataSqlSessionFactory.getSqlSession();
+
+        try {
+            StudentMapper studentMapper = sqlSession.getMapper(StudentMapper.class);
+            return studentMapper.findStudentWithAddress(id);
         } finally {
             sqlSession.close();
         }

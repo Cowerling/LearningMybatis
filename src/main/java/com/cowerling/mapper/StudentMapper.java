@@ -11,15 +11,19 @@ import java.util.List;
  * Created by dell on 2017-6-13.
  */
 public interface StudentMapper {
-    @Select("SELECT * FROM students")
+    //@Select("SELECT * FROM students")
     List<Student> findAllStudents();
 
     //@Select("SELECT * FROM student WHERE stud_id = #{id}")
     Student findStudentById(Integer id);
 
-    @Insert("INSERT INTO students VALUES(#{id}, #{name}, #{email}, #{birthday})")
+    //@Insert("INSERT INTO students VALUES(#{id}, #{name}, #{email}, #{birthday})")
     int insertStudent(Student student);
 
-    @Update("UPDATE students SET name=#{name}, email=#{email}, dob=#{birthday} WHERE stud_id=#{id}")
+    //@Update("UPDATE students SET name=#{name}, email=#{email}, dob=#{birthday} WHERE stud_id=#{id}")
     int updateStudent(Student student);
+
+    int deleteStudent(Student student);
+
+    Student findStudentWithAddress(int id);
 }
