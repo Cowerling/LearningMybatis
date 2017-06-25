@@ -30,7 +30,11 @@
         <collection property="courses" resultMap="courseResult" />
     </resultMap>
 
-    <select id="findTutorById" parameterType="int" resultMap="tutorResult">
+    <!--<select id="findTutorById" parameterType="int" resultMap="tutorResult">
         SELECT tutors.tutor_id, tutors.name, email, addresses.addr_id, street, city, state, zip, country, course_id, courses.name, description, start_date, end_date FROM tutors LEFT OUTER JOIN addresses ON tutors.addr_id=addresses.addr_id LEFT OUTER JOIN courses ON tutors.tutor_id=courses.tutor_id WHERE tutors.tutor_id=#{id}
+    </select>-->
+
+    <select id="findCoursesByTutor" parameterType="tutor" resultMap="courseResult">
+        SELECT * FROM courses WHERE tutor_id=#{id}
     </select>
 </mapper>

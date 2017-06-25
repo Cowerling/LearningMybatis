@@ -1,8 +1,11 @@
+import com.cowerling.domain.Course;
 import com.cowerling.domain.Tutor;
 import com.cowerling.service.TutorService;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
+
+import java.util.List;
 
 import static org.junit.Assert.*;
 
@@ -26,5 +29,16 @@ public class TutorTest {
     public void testFindTutorById() {
         Tutor tutor = tutorService.findTutorById(2);
         assertNotNull(tutor);
+    }
+
+    @Test
+    public void testFindCoursesByTutor() {
+        Tutor tutor = tutorService.findTutorById(2);
+        List<Course> courses = tutorService.findCoursesByTutor(tutor);
+        assertNotNull(courses);
+
+        for (Course course : courses) {
+            System.out.println(course);
+        }
     }
 }

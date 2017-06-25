@@ -1,10 +1,13 @@
 package com.cowerling.domain;
 
+import org.apache.ibatis.type.Alias;
+
 import java.util.List;
 
 /**
  * Created by dell on 2017-6-21.
  */
+@Alias("tutor")
 public class Tutor {
     private Integer id;
     private String name;

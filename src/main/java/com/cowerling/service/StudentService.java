@@ -4,6 +4,7 @@ import com.cowerling.domain.Student;
 import com.cowerling.mapper.StudentMapper;
 import com.cowerling.util.DataSourceFactory;
 import com.cowerling.util.DataSqlSessionFactory;
+import org.apache.ibatis.session.RowBounds;
 import org.apache.ibatis.session.SqlSession;
 
 import java.util.List;
@@ -17,7 +18,7 @@ public class StudentService {
 
         try {
             StudentMapper studentMapper = sqlSession.getMapper(StudentMapper.class);
-            return studentMapper.findAllStudents();
+            return studentMapper.findAllStudents(new RowBounds(0, 25));
         } finally {
             sqlSession.close();
         }

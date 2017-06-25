@@ -39,24 +39,24 @@
         <collection property="courses" resultMap="courseResult" />
     </resultMap>
 
-    <select id="findAllStudents" resultMap="studentResult">
+    <!--<select id="findAllStudents" resultMap="studentResult">
         SELECT * FROM students
-    </select>
+    </select>-->
 
     <select id="findStudentById" parameterType="int" resultMap="studentResult">
         SELECT * FROM students WHERE stud_id = #{id}
     </select>
 
-    <select id="findStudentWithAddress" parameterType="int" resultMap="studentWithAddressResult">
+    <!--<select id="findStudentWithAddress" parameterType="int" resultMap="studentWithAddressResult">
         SELECT stud_id, name, email, phone, addresses.addr_id AS addr_id, street, city, state, zip, country FROM students LEFT OUTER JOIN addresses ON students.addr_id=addresses.addr_id WHERE students.stud_id=#{id}
-    </select>
+    </select>-->
 
-    <insert id="insertStudent" parameterType="student">
+    <!--<insert id="insertStudent" parameterType="student">
         <selectKey keyProperty="id" resultType="int" order="BEFORE">
             SELECT nextval('students_stud_id_seq')
         </selectKey>
-        INSERT INTO students (name, email, phone, dob) VALUES (#{name}, #{email}, #{phoneNumber}, #{birthday})
-    </insert>
+        INSERT INTO students (name, email, phone, dob, gender_id) VALUES (#{name}, #{email}, #{phoneNumber}, #{birthday}, #{gender})
+    </insert>-->
 
     <update id="updateStudent" parameterType="student">
         UPDATE students SET name=#{name}, email=#{email}, phone=#{phoneNumber} WHERE stud_id=#{id}

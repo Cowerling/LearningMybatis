@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.cowerling.mapper.UserPicMapper">
+    <resultMap id="userPicResult" type="userPic">
+        <id property="id" column="id" />
+        <result property="name" column="name" />
+        <result property="picture" column="pic" />
+        <result property="biography" column="bio" />
+    </resultMap>
+
+    <insert id="insertUserPic" parameterType="userPic">
+        INSERT INTO user_pics(name, pic, bio) VALUES(#{name}, #{picture}, #{biography})
+    </insert>
+
+    <select id="selectUserPic" parameterType="int" resultMap="userPicResult">
+        SELECT * FROM user_pics WHERE id = #{id}
+    </select>
+</mapper>

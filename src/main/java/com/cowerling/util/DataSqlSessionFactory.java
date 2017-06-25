@@ -1,5 +1,6 @@
 package com.cowerling.util;
 
+import com.cowerling.domain.Gender;
 import org.apache.ibatis.datasource.*;
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.mapping.Environment;
@@ -10,6 +11,7 @@ import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 import org.apache.ibatis.transaction.TransactionFactory;
 import org.apache.ibatis.transaction.jdbc.JdbcTransactionFactory;
 import org.apache.ibatis.transaction.managed.ManagedTransactionFactory;
+import org.apache.ibatis.type.EnumOrdinalTypeHandler;
 
 import javax.sql.DataSource;
 import java.io.IOException;
@@ -41,6 +43,7 @@ public class DataSqlSessionFactory {
             Configuration configuration = new Configuration(environment);
             configuration.getTypeAliasRegistry().registerAliases("com.cowerling.domain");
             configuration.getTypeHandlerRegistry().register("com.cowerling.type");
+            configuration.getTypeHandlerRegistry().register(Gender.class, EnumOrdinalTypeHandler.class);
             configuration.addMappers("com.cowerling.mapper");
             sqlSessionFactory = new SqlSessionFactoryBuilder().build(configuration);
         }

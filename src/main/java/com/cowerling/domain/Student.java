@@ -15,6 +15,7 @@ public class Student {
     private Date birthday;
     private PhoneNumber phoneNumber;
     private Address address;
+    private Gender gender;
 
     public Student() {}
 
@@ -75,6 +76,14 @@ public class Student {
 
     public void setAddress(Address address) {
         this.address = address;
+    }
+
+    public Gender getGender() {
+        return gender;
+    }
+
+    public void setGender(Gender gender) {
+        this.gender = gender;
     }
 
     @Override

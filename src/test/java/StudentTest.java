@@ -1,3 +1,4 @@
+import com.cowerling.domain.Gender;
 import com.cowerling.domain.PhoneNumber;
 import com.cowerling.domain.Student;
 import com.cowerling.service.StudentService;
@@ -48,7 +49,8 @@ public class StudentTest {
     @Test
     public void testCreateStudent() {
         /*try {
-            Student student = new Student("Breccan", "breccan@gmail.com", new SimpleDateFormat("yyyy-MM-dd").parse("1990-01-23"));
+            Student student = new Student("Alimama", "alimama@gmail.com", new SimpleDateFormat("yyyy-MM-dd").parse("1988-01-21"));
+            student.setGender(Gender.FEMAIL);
 
             studentService.createStudent(student);
 

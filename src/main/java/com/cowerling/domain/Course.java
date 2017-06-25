@@ -1,10 +1,13 @@
 package com.cowerling.domain;
 
+import org.apache.ibatis.type.Alias;
+
 import java.util.Date;
 
 /**
  * Created by dell on 2017-6-21.
  */
+@Alias("course")
 public class Course {
     private Integer id;
     private String name;
@@ -59,5 +62,10 @@ public class Course {
 
     public void setTutorId(Integer tutorId) {
         this.tutorId = tutorId;
+    }
+
+    @Override
+    public String toString() {
+        return name + ": " + description + ", " + startDate + "-" + endDate;
     }
 }
